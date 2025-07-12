@@ -1,0 +1,6 @@
+flask==3.0.2  # Updated Flask
+scikit-learn==1.4.0  # Updated scikit-learn (Jan 2024 release)
+joblib==1.3.2
+gunicorn==21.2.0
+nltk==3.8.1
+threadpoolctl==3.3.0  # Required for scikit-learn
