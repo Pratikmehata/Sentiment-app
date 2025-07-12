@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Sentiment Analyzer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-film"></i> Movie Review Sentiment Analyzer</h1>
+            <p class="subtitle">Discover the emotional tone of your movie reviews</p>
+        </div>
+        
+        <div class="input-card">
+            <div class="input-header">
+                <h2>Enter Your Review</h2>
+                <div class="char-counter"><span id="char-count">0</span>/500</div>
+            </div>
+            <textarea id="review-text" placeholder="Type or paste your movie review here..." maxlength="500"></textarea>
+            <div class="controls">
+                <button id="analyze-btn" onclick="analyzeSentiment()">
+                    <i class="fas fa-magic"></i> Analyze Sentiment
+                </button>
+                <button id="sample-btn" onclick="loadSample()">
+                    <i class="fas fa-lightbulb"></i> Load Sample
+                </button>
+                <button id="clear-btn" onclick="clearText()">
+                    <i class="fas fa-trash"></i> Clear
+                </button>
+            </div>
+        </div>
+        
+        <div id="result-card" class="hidden">
+            <div class="result-header">
+                <h2>Analysis Result</h2>
+                <div id="sentiment-indicator" class="sentiment-neutral">
+                    <div id="sentiment-icon"><i class="fas fa-meh"></i></div>
+                    <span id="sentiment-text">Neutral</span>
+                </div>
+            </div>
+            
+            <div class="confidence-meter">
+                <div class="meter-labels">
+                    <span>Negative</span>
+                    <span>Positive</span>
+                </div>
+                <div class="meter-track">
+                    <div id="confidence-bar" class="meter-fill"></div>
+                </div>
+                <div id="confidence-value" class="value">50%</div>
+            </div>
+            
+            <div class="feedback-section">
+                <p>Was this analysis accurate?</p>
+                <div class="feedback-buttons">
+                    <button class="feedback-btn" onclick="sendFeedback('correct')">
+                        <i class="fas fa-thumbs-up"></i> Yes
+                    </button>
+                    <button class="feedback-btn" onclick="sendFeedback('incorrect')">
+                        <i class="fas fa-thumbs-down"></i> No
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading-overlay" class="hidden">
+        <div class="spinner"></div>
+        <p>Analyzing your review...</p>
+    </div>
+
+    <div id="toast" class="hidden"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
