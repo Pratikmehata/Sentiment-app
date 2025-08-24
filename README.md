@@ -114,12 +114,3 @@ python-3.9.13
 ---
 
 
-## 👨‍💻 Author
-
-**Pratik Mehata**
-[LinkedIn](https://www.linkedin.com/in/pratikmehata) | [GitHub](https://github.com/pratikmehata)
-
-```
-
-Do you also want me to add a **live demo link section** at the top (pointing to your Render app URL)?
-```
